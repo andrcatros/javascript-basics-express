@@ -11,7 +11,7 @@ const multiply = (a, b) => {
 };
 
 const divide = (a, b) => {
-  return a/b;
+  return a / b;
 };
 
 const power = (a, b) => {
@@ -38,6 +38,10 @@ const quotient = (a, b) => {
   return (a-a%b)/b
 };
 
+const remainder = (a, b) => {
+  return a % b;
+};
+
 module.exports = {
   add,
   subtract,
@@ -49,5 +53,5 @@ module.exports = {
   roundDown,
   absolute,
   quotient,
-  remainder
+  remainder,
 };
