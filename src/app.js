@@ -11,6 +11,8 @@ const { subtract } = require('./lib/numbers');
 const { multiply } = require('./lib/numbers');
 const { divide } = require('./lib/numbers');
 const { remainder } = require('./lib/numbers');
+const { removeNthElement2 } = require('./lib/arrays');
+const { elementsStartingWithAVowel } = require('./lib/arrays');
 
 // hello world
 
@@ -115,6 +117,42 @@ app.post('/numbers/remainder', (req, res) => {
     res.status(400).json({ error: 'Unable to divide by 0.' });
   } else {
     res.status(200).json({ result: remainder(a, b) });
+  }
+});
+
+// element at index
+app.post('/arrays/element-at-index/:index', (req, res) => {
+  const array = req.body.array;
+  res.status(200).json({ result: array[req.params.index] });
+});
+
+// array to string
+app.post('/arrays/to-string', (req, res) => {
+  const array = req.body.array;
+  res.status(200).json({ result: array.toString() });
+});
+
+// append
+app.post('/arrays/append', (req, res) => {
+  const array = req.body.array;
+  const value = req.body.value;
+  res.status(200).json({ result: array.concat(value) });
+});
+
+// starts with a vowel
+app.post('/arrays/starts-with-vowel', (req, res) => {
+  const array = req.body.array;
+  res.status(200).json({ result: elementsStartingWithAVowel(array) });
+});
+
+// remove element
+app.post('/arrays/remove-element', (req, res) => {
+  const array = req.body.array;
+
+  if (req.query.index === undefined) {
+    res.status(200).json({ result: removeNthElement2(0, array) });
+  } else {
+    res.status(200).json({ result: removeNthElement2(req.query.index, array)})
   }
 });
 

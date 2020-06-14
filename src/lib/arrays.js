@@ -1,9 +1,8 @@
 const getNthElement = (index, array) => {
-  if (index <= array.length-1){
+  if (index <= array.length -1) {
     return array[index];
-  } else {
-    return array[(array.length-index)*-1];
   }
+  return array[(array.length - index) * -1];
 };
 
 const arrayToCSVString = array => {
@@ -34,20 +33,20 @@ const uppercaseWordsInArray = strings => {
   return strings.map(string => string.toUpperCase());
 };
 
-const reverseWordsInArray = strings => { 
+const reverseWordsInArray = strings => {
   const reverseFunction = string => {
-    let newString = Array.from(string).reverse().join('');
+    const newString = Array.from(string).reverse().join('');
     return newString;
-    }
+  };
   return strings.map(string => reverseFunction(string));
 };
 
 const onlyEven = numbers => {
-  return numbers.filter(num => num%2===0);
+  return numbers.filter(num => num%2 === 0);
 }
 
 const removeNthElement2 = (index, array) => {
-  return array.filter(element => element!==array[index]);
+  return array.filter(element => element !== array[index]);
 };
 
 const elementsStartingWithAVowel = strings => {
